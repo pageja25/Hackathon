@@ -1,24 +1,26 @@
-import './App.css';
-import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import { Input } from '@chakra-ui/react';
+import * as React from 'react'
 
 
-function App() {
-  const [show, setShow] = React.useState(false)
+// 1. import `ChakraProvider` component
+import { ChakraProvider,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon, 
+  Box,
+  Badge, 
+  Stack,
+  Card, CardHeader, CardBody, CardFooter,
+  Text, Image, Button,
+  Flex, Avatar, Heading, IconButton, Divider, ButtonGroup} from '@chakra-ui/react'
+import makeCard from './cards'
+
+
+
+export default function App() {
+  // 2. Wrap ChakraProvider at the root of your app
   return (
-    <ChakraProvider>
-      <div id="security">
-        <Input placeholder='Username' />
-        <Input  type={show ? 'text' : 'password'} placeholder='Password' />
-      </div>
-      <div id="buttonPos">
-      
-      <Button id="button" colorScheme='blue'>Login</Button>
-      </div>
-    </ChakraProvider>
-  );
+    makeCard()
+  )
 }
-
-export default App;
